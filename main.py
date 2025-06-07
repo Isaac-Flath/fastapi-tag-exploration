@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse
 import fastapi_tags as ft
-from templates import index
+from templates import index, about
 
 app = FastAPI()
 
@@ -21,3 +21,8 @@ async def add_task(task: str = Form(...)):
 async def delete_task(task_id: int):
     if 0 <= task_id < len(tasks):
         tasks.pop(task_id)
+
+@app.get("/about", response_class=ft.FTResponse)
+async def about_page():
+    """Render the about page."""
+    return about.render()
