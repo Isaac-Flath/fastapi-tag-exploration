@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse
 import fastapi_tags as ft
-from templates import index, about
+from templates import index, about, contact
 
 app = FastAPI()
 
@@ -26,3 +26,15 @@ async def delete_task(task_id: int):
 async def about_page():
     """Render the about page."""
     return about.render()
+
+@app.get("/contact", response_class=ft.FTResponse)
+async def contact_page():
+    """Render the contact page."""
+    return contact.render()
+
+@app.post("/send-message", response_class=ft.FTResponse)
+async def send_message(message: str = Form(...)):
+    return ft.Div(
+        ft.P(f"Message received: {message}", cls="text-green-600 bg-green-100 p-2 rounded mb-2"),
+        id=f"message-{len(tasks)}"
+    )

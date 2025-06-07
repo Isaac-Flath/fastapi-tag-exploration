@@ -1,6 +1,7 @@
 import fastapi_tags as ft
 import styles
 import layout
+import components
 
 
 def create_task_li(task: str, index: int):
@@ -8,15 +9,7 @@ def create_task_li(task: str, index: int):
     return ft.Li(
         ft.Div(
             ft.Span(task, class_=styles.typography.text),
-            ft.Button(
-                "Delete",
-                cls=styles.buttons.delete,
-                **{
-                    "hx-delete": f"/delete-task/{index}",
-                    "hx-target": f"#task-{index}",
-                    "hx-swap": "delete"
-                }
-            ),
+            components.delete_button(index, "/delete-task", f"task-{index}"),
             cls=styles.layout.task_item
         ),
         id=f"task-{index}",
@@ -30,28 +23,7 @@ def render(tasks: list[str]) -> ft.Html:
     
     return layout.page(
         "Task Manager",
-        layout.header_with_nav("Task Manager", "About", "/about"),
-        ft.Form(
-            ft.Div(
-                ft.Input(
-                    type="text",
-                    name="task",
-                    placeholder="Enter task",
-                    required=True,
-                    cls=styles.forms.input
-                ),
-                ft.Button(
-                    "Add Task",
-                    type="submit",
-                    cls=styles.buttons.primary_with_margin
-                ),
-                cls=styles.layout.form_group
-            ),
-            **{
-                "hx-post": "/add-task",
-                "hx-target": "#task-list",
-                "hx-swap": "beforeend"
-            }
-        ),
+        components.page_header("Task Manager", "Home"),
+        components.input_with_button("task", "Enter task", "Add Task", "/add-task", "#task-list"),
         ft.Ul(*task_items, id="task-list", cls=styles.layout.task_list)
     )
