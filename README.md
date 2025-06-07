@@ -1,6 +1,6 @@
-# Course Platform
+# fastapi tag exploration
 
-This is the start of a course platform!
+Playing with fastapi tags
 
 ## Run the app
 
