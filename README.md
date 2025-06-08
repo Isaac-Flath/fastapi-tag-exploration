@@ -11,9 +11,13 @@ Playing with fastapi tags
 This repo is exploring what is we go full python with fastapi, using the fastapi-tags danny created.  This means:
 
 ✅ Fasttags inf̶a̶s̶t̶h̶t̶m̶l̶ ̶fastapi
+
 ✅ J̵i̵n̵j̵a̵Python Templating
+
 ✅ J̶S̶X̶ ̶Python Components
+
 ✅ C̶S̶S̶ ̶Python Styles
+
 ✅ Patterns from next-js and others
 
 ## Credit
