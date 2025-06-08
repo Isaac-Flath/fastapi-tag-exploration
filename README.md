@@ -22,4 +22,4 @@ Thanks to Jeremy Howard for creating [fasttags](https://fastcore.fast.ai/xml) an
 
 ## Is this a good idea?
 
-🤷‍♂️ - i'm just goofing around having fun with an idea at this point.  There's some things I really like, and some things I don't really like about it.  But I think it's a direction worth exploring!
+It's really early.  There's some things I really like, and some things I don't really like about it.  I'm not sure yet.  But I think it's a definitely direction worth exploring!
